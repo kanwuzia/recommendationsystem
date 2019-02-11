@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+                <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+                <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+                <link rel="apple-touch-icon-precomposed" sizes="180x180" href="/apple-touch-icon-precomposed.png">
+                <link id="paymo-favicon-32" rel="icon" type="image/png" href="/favicons/paymo-logo-green.png" sizes="32x32">
+                <link id="paymo-favicon-16" rel="icon" type="image/png" href="/favicons/paymo-logo-green-16x16.png" sizes="16x16">
+                <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+                <link rel="manifest" href="/favicons/manifest.json">
+                <title>Login - Paymo</title>            	
+                <link href="main.css" media="screen" rel="stylesheet" type="text/css"><script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/ec.js"></script><script async="" src="//static.ads-twitter.com/uwt.js"></script><script src="https://connect.facebook.net/signals/config/588465351256932?v=2.8.37&amp;r=stable" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script async="" src="https://a.quora.com/qevents.js"></script><script type="text/javascript" async="" src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script><script type="application/javascript" src="https://tracking.g2crowd.com/attribution_tracking/conversions/699.js?p=https://app.paymoapp.com/auth/login/&amp;e="></script><script src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/962080885/?random=1548074572399&amp;cv=9&amp;fst=1548074572399&amp;num=1&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=768&amp;u_w=1366&amp;u_ah=738&amp;u_aw=1366&amp;u_cd=24&amp;u_his=2&amp;u_tz=60&amp;u_java=false&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2wg170&amp;sendb=1&amp;frm=0&amp;url=https%3A%2F%2Fapp.paymoapp.com%2Fauth%2Flogin%2F&amp;tiba=Login%20-%20Paymo&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+            </head>
+            <body data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+		
+	
+                    <!-- Google Tag Manager -->
+                <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KDG8"
+                                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+                <script type="text/javascript" async="" src="//www.googleadservices.com/pagead/conversion_async.js"></script><script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script><script async="" src="//www.googletagmanager.com/gtm.js?id=GTM-KDG8"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-KDG8');</script>
+                <!-- End Google Tag Manager --><div class="login-bg-plain stain">
+                    <div class="form-basic" id="login">
+                                <div class="form-content">
+                        <div class="login-header">
+                            <div class="logo"><span class="color"></span> </div>
+                        </div>
+                        <form name="loginform" action="/auth/do-login" method="post">
+                            <input type="hidden" name="data[hash]" id="hash" value="">
+                            <input type="hidden" name="data[return]" value="">
+                            <table>
+                            <tbody><tr>
+                                <td><input id="email" type="text" name="data[email]" placeholder="E-mail" value="" tabindex="1"></td>
+                            </tr>
+                            <tr>
+                                <td><input type="password" name="data[password]" placeholder="Password" value="" tabindex="2"></td>
+                            </tr>
+                            <tr>
+                                <td class="remember-me-td">
+                                    <label class="remember-me" for="remember_me"><input type="checkbox" id="remember_me" tabindex="3" name="data[remember]" value="1">Remember me</label><span class="forgot-pass"><a href="/auth/password-recovery" class="" tabindex="5">Forgot password?</a></span>
+                                </td>
+                            </tr>
+                                <tr><td style="text-align: center;">
+                                    <input type="submit" class="login-btn" value="Login" tabindex="4">
+                                </td>
+                            </tr><tr>
+                            </tr>
+                            </tbody></table>
+                        </form>
+                        <div class="separator"><div class="separator-line"></div><span>OR</span><div class="separator-line"></div></div>
+                                                <form name="googleloginform" class="oauth2form" id="googlelogin" action="/auth/oauth2-do-login" method="post">
+                            <input type="hidden" name="data[oauth2_location_hash]" class="oauth2-location-hash" value="">
+                            <input type="hidden" name="data[oauth2_return]" value="">
+                                        <table>
+                                <tbody><tr>
+                                    <td style="text-align: center; color: #b9b9b9;">
+                                        <input type="hidden" name="data[provider_id]" value="1">
+                                        <input type="hidden" name="data[params][referrals]" value="">
+                                        <input type="submit" class="google-btn" value="Sign in with Google" tabindex="4">
+                                    </td>
+                                </tr>
+                            </tbody></table>
+                        </form>
+                            <div class="login-footer">
+                            <span>Don't have an account? <a href="//www.paymoapp.com/pricing/">Sign up here</a></span>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <script>
+                    var oAuth2HiddenHashInputs;
+                
+                    window.onload = function() {
+                        document.getElementById('hash').value = location.hash;
+                        document.getElementById('email').focus();
+                        // Array.from e din ES6
+                        oAuth2HiddenHashInputs = Array.prototype.slice.call( document.getElementsByClassName( 'oauth2-location-hash' ) );
+                        oAuth2HiddenHashInputs.forEach( function( oAuth2HiddenHashInput ) {
+                            oAuth2HiddenHashInput.value = location.hash;
+                        });
+                    };
+                </script>
+                <script type="text/javascript" id="">(function(d,e,f,b,c,a){c="";b="https://tracking.g2crowd.com/attribution_tracking/conversions/"+d+".js?p\x3d"+encodeURI(e)+"\x26e\x3d"+c;a=document.createElement("script");a.type="application/javascript";a.src=b;f.getElementsByTagName("head")[0].appendChild(a)})("699",document.location.href,document);</script><script type="text/javascript" id="">_linkedin_data_partner_id="244874";</script><script type="text/javascript" id="">(function(){var b=document.getElementsByTagName("script")[0],a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src="https://snap.licdn.com/li.lms-analytics/insight.min.js";b.parentNode.insertBefore(a,b)})();</script>
+                <noscript>
+                <img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=244874&amp;fmt=gif">
+                </noscript><script type="text/javascript" id="">!function(d,e,f,a,b,c){d.qp||(a=d.qp=function(){a.qp?a.qp.apply(a,arguments):a.queue.push(arguments)},a.queue=[],b=document.createElement(e),b.async=!0,b.src=f,c=document.getElementsByTagName(e)[0],c.parentNode.insertBefore(b,c))}(window,"script","https://a.quora.com/qevents.js");qp("init","69f8903b500643ceb4b2bdab9ce1326d");qp("track","ViewContent");</script>
+                <noscript><img height="1" width="1" style="display:none" src="https://q.quora.com/_/ad/69f8903b500643ceb4b2bdab9ce1326d/pixel?tag=ViewContent&amp;noscript=1"></noscript>
+                <script type="text/javascript" id="">!function(b,e,f,g,a,c,d){b.fbq||(a=b.fbq=function(){a.callMethod?a.callMethod.apply(a,arguments):a.queue.push(arguments)},b._fbq||(b._fbq=a),a.push=a,a.loaded=!0,a.version="2.0",a.queue=[],c=e.createElement(f),c.async=!0,c.src=g,d=e.getElementsByTagName(f)[0],d.parentNode.insertBefore(c,d))}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");fbq("init","588465351256932");fbq("track","PageView");</script>
+                <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=588465351256932&amp;ev=PageView&amp;noscript=1"></noscript>
+                <script type="text/javascript" id="">!function(d,e,f,a,b,c){d.twq||(a=d.twq=function(){a.exe?a.exe.apply(a,arguments):a.queue.push(arguments)},a.version="1.1",a.queue=[],b=e.createElement(f),b.async=!0,b.src="//static.ads-twitter.com/uwt.js",c=e.getElementsByTagName(f)[0],c.parentNode.insertBefore(b,c))}(window,document,"script");twq("init","o04q1");twq("track","PageView");</script>
+                <script src="https://px.ads.linkedin.com/collect/?time=1548074573729&amp;pid=244874&amp;url=https%3A%2F%2Fapp.paymoapp.com%2Fauth%2Flogin%2F&amp;fmt=js&amp;s=1" type="text/javascript"></script><script src="https://analytics.twitter.com/i/adsct?p_id=Twitter&amp;p_user_id=0&amp;txn_id=o04q1&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels&amp;tw_document_href=https%3A%2F%2Fapp.paymoapp.com%2Fauth%2Flogin%2F" type="text/javascript"></script></body>
+</html>
