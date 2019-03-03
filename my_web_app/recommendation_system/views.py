@@ -13,6 +13,14 @@ from django.utils.http import urlsafe_base64_decode
 from django.http import HttpResponse
 
 
+def account_activation_sent(request):
+    return render(request, 'accounts/account_activation_sent.html')
+
+
+def profile(request):
+    return render(request, 'accounts/profile.html')
+
+
 def activate(request, uidb64, token):
     try:
         uid = force_text(urlsafe_base64_decode(uidb64))
@@ -50,11 +58,3 @@ def signup(request):
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
-
-
-def account_activation_sent(request):
-    return render(request, 'accounts/account_activation_sent.html')
-
-
-def profile(request):
-    return render(request, 'accounts/profile.html')
