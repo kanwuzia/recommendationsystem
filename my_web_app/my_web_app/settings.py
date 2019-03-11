@@ -125,3 +125,5 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/accounts/login/'
 
 LOGOUT_REDIRECT_URL = '/accounts/login'
+
+LOGIN_REDIRECT_URL = '/accounts/dashboard/'

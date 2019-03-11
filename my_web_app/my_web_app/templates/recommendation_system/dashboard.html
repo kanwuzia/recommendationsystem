@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %} Make a recommendation {% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="col-sm-12">
+			<h4 class="page-title">Make a Recommendation</h4>
+		</div>
+	</div>
+	<div class="row top_profile">
+		<div class="col-md-12">
+			{% if token %}
+				Tokenized word: {{ token }}
+			{% endif %}
+			<div class="card-box">
+				<form method="POST" action="">
+					{% csrf_token %}
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Full Name</label>
+								<input type="text" class="form-control" name="fullname">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>Course of Study</label>
+								<select class="form-control" name="course_selected">
+									<option value="">-- select --</option>
+									<option value="1">Computer Science</option>
+									<option value="2">Computer Engineering</option>
+									<option value="3">Economics</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<hr>
+
+					<div class="row top_profile">
+						<div class="col-md-4">
+							<div class="form-group">
+								<label>Area of Study</label>
+								<textarea type="text" class="form-control" name="study_area"></textarea>
+								<p style="font-size: 9px"><em>* Maximum 180 Characters</em></p>
+							</div>
+						</div>
+					</div>
+					<hr>
+					<div class="row top_profile">
+						<div class="col-md-4">
+							<input type="submit" class="btn btn-success" value="Recommend">
+							<input type="button" class="btn btn-danger" value="Discard">
+						</div>
+					</div>
+				</form>
+
+			</div>
+		</div>
+	</div>
+{% endblock %}

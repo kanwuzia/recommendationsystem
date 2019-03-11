@@ -11,15 +11,48 @@ from django.contrib.auth.models import User
 from django.utils.encoding import force_text
 from django.utils.http import urlsafe_base64_decode
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+import nltk
+from nltk.stem import PorterStemmer
+from nltk.stem import LancasterStemmer
 
+def index(request):
+    return render(request, 'index.html', {})
 
 def account_activation_sent(request):
     return render(request, 'accounts/account_activation_sent.html')
 
+@login_required
+def dashboard(request):
+    context = {}
+    if request.method == 'POST':
+        form_data = request.POST.copy()
+        study_area = form_data.get('study_area')
+        study_area2 = str.lower(study_area)
+        token1 = nltk.word_tokenize(study_area2)
 
+        stopword = []
+        with open ('stopwords.txt', 'r') as file:
+            new = file.readline()
+        for line in new:
+            stopword.append(line)
+        
+        token = []
+        for word in token1:
+            if word not in stopword:
+                token.append(word)
+
+        context.update({'token': token})
+    return render(request, 'recommendation_system/dashboard.html', context)
+
+@login_required
 def profile(request):
     return render(request, 'accounts/profile.html')
 
+@login_required
+def recommendations(request):
+    return render(request, 'recommendation_system/recommendations.html')
 
 def activate(request, uidb64, token):
     try:
@@ -43,8 +76,9 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
+            user.is_active = True
             user.save()
+            messages.add_message(request, messages.SUCCESS, 'User successfully created')
             current_site = get_current_site(request)
             subject = 'Activate Your Account'
             message = render_to_string('accounts/account_activation_email.html', {
@@ -54,7 +88,8 @@ def signup(request):
                 'token': account_activation_token.make_token(user),
             })
             user.email_user(subject, message)
-            return redirect('account_activation_sent')
+            login(request, user)
+            return redirect('dashboard')
     else:
         form = SignUpForm()
     return render(request, 'accounts/signup.html', {'form': form})
