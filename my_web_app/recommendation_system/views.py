@@ -14,8 +14,9 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 import nltk
-from nltk.stem import PorterStemmer
-from nltk.stem import LancasterStemmer
+from nltk.corpus import stopwords
+from nltk.stem.wordnet import WordNetLemmatizer
+
 
 def index(request):
     return render(request, 'index.html', {})
@@ -33,15 +34,17 @@ def dashboard(request):
         token1 = nltk.word_tokenize(study_area2)
 
         stopword = []
-        with open ('stopwords.txt', 'r') as file:
-            new = file.readline()
-        for line in new:
+        stop_words = set(stopwords.words('english'))
+        for line in stop_words:
             stopword.append(line)
         
         token = []
         for word in token1:
             if word not in stopword:
                 token.append(word)
+
+        def get_lemma(word):
+            return WordNetLemmatizer().lemmatize(word)
 
         context.update({'token': token})
     return render(request, 'recommendation_system/dashboard.html', context)
